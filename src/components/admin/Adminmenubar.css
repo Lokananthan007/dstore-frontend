@@ -1,0 +1,47 @@
+/* Sidebar Styling */
+.sidebar {
+    height: 100vh;
+    background-color: #343a40;
+    color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .sidebar.collapsed {
+    width: 50px;
+  }
+  
+  .sidebar.expanded {
+    width: 250px;
+  }
+  
+  .sidebar .nav-link {
+    color: white;
+    padding: 10px;
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: #495057;
+  }
+  
+  /* Main Content Styling */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+  }
+  
+  .main-content.full {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+  
+  .main-content.shrink {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+  }
+  
+  /* Flexbox Container */
+  .d-flex {
+    display: flex;
+  }
+  
