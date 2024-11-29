@@ -17,7 +17,7 @@ function Login() {
       });
       localStorage.setItem('token', response.data.token);
       setMessage('Login successful!');
-      window.location.href = '/dashboard'; // Redirect on success
+      window.location.href = '/dashboard'; 
     } catch (err) {
       setMessage(err.response.data.message || 'Error logging in');
     }

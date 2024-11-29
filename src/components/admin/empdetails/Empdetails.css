@@ -1,0 +1,22 @@
+
+#Empdetdils .row{
+    width: 100%;
+    height: 70vh;
+    margin-top: 20px;
+    background-color: rgb(194, 243, 243);
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2),  
+              -3px 3px 3px rgba(0, 0, 0, 0.2), 
+              3px -3px 3px rgba(0, 0, 0, 0.2), 
+              -3px -3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#Empdetdils .row h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    padding-top: 30px;
+    color: blue;
+    text-shadow: 2px 0px 2px gray;
+}
+

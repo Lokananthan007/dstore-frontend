@@ -1,0 +1,46 @@
+@font-face{
+  font-family: 'CustomFont';
+  src: url('./fonts/Merriweather-Bold.ttf') format('truetype'),
+  url('./fonts/Merriweather-Black.ttf') format('truetype'),
+  url('./fonts/Merriweather-BlackItalic.ttf') format('truetype'),
+  url('./fonts/Merriweather-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+    --sidebar-width: 100px;
+    --sidebar-expanded-width: 250px;
+    --color-text: #000000;
+    --color-text-btn: #000000;
+    --header-bg-color: rgba(75, 192, 192, 0.6); 
+    --sidebar-bg-color: rgba(75, 192, 192, 0.6); 
+    --accent-color: rgba(153, 102, 255, 0.6);
+    --active-color: rgba(153, 102, 255);
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'CustomFont';
+    font-weight: 500;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'CustomFont' !important;
+  }
+
+
+  .main-content {
+    margin-left: 120px;
+    transition: margin-left 0.5s ease;
+    margin-top: 90px;
+    width: auto;
+  }
+  
