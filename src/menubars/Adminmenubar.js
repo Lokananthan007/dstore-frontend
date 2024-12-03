@@ -5,7 +5,7 @@ import { FaTachometerAlt , FaUsers,  FaShippingFast,  FaEdit} from "react-icons/
 import { IoPersonAddOutline } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LuLogOut } from "react-icons/lu";
-import Logo from '../components/images/logo.jpg';
+import Logo from '../components/images/CRM logo.png';
 
 function Adminmenubar() {
     const [activeLink, setActiveLink] = useState('');

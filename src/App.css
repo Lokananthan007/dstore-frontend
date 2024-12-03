@@ -39,8 +39,8 @@
 
   .main-content {
     margin-left: 120px;
-    transition: margin-left 0.5s ease;
     margin-top: 90px;
+    margin-right: 20px;
     width: auto;
   }
   

@@ -16,6 +16,7 @@ function Empdetdils() {
         designation: '',
         empId: '',
         password: '',
+        salary: '',
         address: {
             line1: '',
             line2: '',
@@ -49,15 +50,67 @@ function Empdetdils() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+    
+        // Validate form data
+        if (!validateForm()) {
+            alert('Please fill in all the required fields.');
+            return;
+        }
+    
         try {
             await axios.post('http://localhost:5000/api/users/register', formData);
             alert('Employee registered successfully!');
+            // Clear form after successful submission
+            setFormData({
+                firstName: '',
+                lastName: '',
+                mobileNumber: '',
+                alternateNumber: '',
+                dob: '',
+                email: '',
+                aadharNumber: '',
+                panCardNumber: '',
+                dateOfJoining: '',
+                designation: '',
+                empId: '',
+                password: '',
+                salary: '',
+                address: {
+                    line1: '',
+                    line2: '',
+                    city: '',
+                    state: '',
+                    zipCode: '',
+                },
+                bankDetails: {
+                    bankName: '',
+                    branch: '',
+                    accountNumber: '',
+                    ifscCode: '',
+                },
+            });
         } catch (error) {
             console.error('Error saving data:', error);
             alert('Failed to register employee.');
         }
     };
-
+    
+    // Validation function
+    const validateForm = () => {
+        // Check main fields
+        for (let key in formData) {
+            if (typeof formData[key] === 'object') {
+                // Check nested objects (address, bankDetails)
+                for (let nestedKey in formData[key]) {
+                    if (!formData[key][nestedKey]) return false;
+                }
+            } else if (!formData[key]) {
+                return false;
+            }
+        }
+        return true;
+    };
+    
     const preventScroll = (e) => e.target.blur();
 
     return (
@@ -81,11 +134,13 @@ function Empdetdils() {
                         <label>Aadhar Number:</label>
                         <input type="number" name="aadharNumber" value={formData.aadharNumber} onChange={handleChange} onWheel={preventScroll} />
                         <label>Pan Card Number:</label>
-                        <input type="number" name="panCardNumber" value={formData.panCardNumber} onChange={handleChange} onWheel={preventScroll} />
+                        <input type="text" name="panCardNumber" value={formData.panCardNumber} onChange={handleChange} onWheel={preventScroll} />
                         <label>Date Of Joining:</label>
                         <input type="date" name="dateOfJoining" value={formData.dateOfJoining} onChange={handleChange} />
                         <label>Designation:</label>
                         <input type="text" name="designation" value={formData.designation} onChange={handleChange} />
+                        <label>Salary:</label>
+                        <input type="number" name="salary" value={formData.salary} onChange={handleChange} onWheel={preventScroll} />
                         <label>Emp ID:</label>
                         <input type="text" name="empId" value={formData.empId} onChange={handleChange} />
                         <label>Password:</label>
@@ -102,7 +157,7 @@ function Empdetdils() {
                         <label>Branch:</label>
                         <input type="text" name="bankDetails.branch" value={formData.bankDetails.branch} onChange={handleChange} />
                         <label>Account Number:</label>
-                        <input type="number" name="bankDetails.accountNumber" value={formData.bankDetails.accountNumber} onChange={handleChange} onWheel={preventScroll} />
+                        <input type="text" name="bankDetails.accountNumber" value={formData.bankDetails.accountNumber} onChange={handleChange} onWheel={preventScroll} />
                         <label>IFSC Code:</label>
                         <input type="text" name="bankDetails.ifscCode" value={formData.bankDetails.ifscCode} onChange={handleChange} />
                         <button type="submit">Submit</button>

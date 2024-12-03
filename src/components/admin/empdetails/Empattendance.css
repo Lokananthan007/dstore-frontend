@@ -1,0 +1,135 @@
+/* Table container */
+#empattendance {
+  width: 100%;
+  height: 80vh;
+  background-color: #e9c9fe;
+  padding: 20px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2),  
+            -3px 3px 3px rgba(0, 0, 0, 0.2), 
+            3px -3px 3px rgba(0, 0, 0, 0.2), 
+            -3px -3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+#empattendance h1{
+  font-family: 'CustomFont' !important;
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+  word-spacing: 3px;
+}
+
+#empattendance .attendance-table {
+  width: 100%;
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+#empattendance .attendance-table th {
+  background-color: #40434e;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  font-family: 'CustomFont' !important;
+  text-transform: capitalize;
+}
+
+#empattendance .attendance-table td {
+  padding: 10px;
+  border-bottom: 1px solid #000000;
+  text-align: center;
+  font-family: 'CustomFont' !important;
+}
+
+#empattendance .attendance-table tr:nth-child(even) {
+  background-color: #c2bac6;
+}
+
+#empattendance .attendance-table tr:nth-child(odd) {
+  background-color: #99979a;
+}
+
+#empattendance .attendance-table tr:hover {
+  background-color: #b4b4d0;
+}
+
+#empattendance .attendance-table th:first-child,
+#empattendance .attendance-table td:first-child {
+  text-align: center;
+}
+
+#empattendance input[type="time"], 
+#empattendance input[type="text"] {
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  /* width: 80px; */
+  font-family: 'CustomFont' !important;
+  font-size: 15px;
+}
+
+#empattendance input[type="time"]:focus, 
+#empattendance input[type="text"]:focus {
+  border-color: #5a67d8;
+  outline: none;
+}
+
+#empattendance .present-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#empattendance .absent-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#empattendance .present-btn:hover, .absent-btn:hover {
+  opacity: 0.8;
+}
+
+#empattendance .status {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#empattendance .status.present {
+  color: white;
+  background-color: #4caf50; /* Green for Present */
+}
+
+#empattendance .status.absent {
+  color: white;
+  background-color: #f44336; /* Red for Absent */
+}
+
+
+@media (max-width: 768px) {
+  #empattendance {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #empattendance .attendance-table {
+    font-size: 14px;
+  }
+
+  #empattendance .attendance-table th,
+  #empattendance .attendance-table td {
+    padding: 8px;
+  }
+
+}
