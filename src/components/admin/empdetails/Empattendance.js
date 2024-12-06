@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Empattendancedata from "./Empattendancedata/Empattendancedata";
+import { useNavigate } from "react-router-dom";
 import "../empdetails/Empattendance.css";
 
 const Empattendance = () => {
@@ -76,10 +76,17 @@ const Empattendance = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleUpdateClick = () => {
+    navigate("/dashboard/empattendance/empattendancedata"); 
+  };
+
   return (
     <div className="main-content">
       <div id="empattendance">
         <h1>Employee Attendance Table</h1>
+        <button onClick={handleUpdateClick}>Update</button>
         <table className="attendance-table">
           <thead>
             <tr>
@@ -180,7 +187,6 @@ const Empattendance = () => {
           </tbody>
         </table>
       </div>
-      <Empattendancedata/>
     </div>
   );
 };

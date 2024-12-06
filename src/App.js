@@ -10,6 +10,7 @@ import Order from './components/admin/order/Order';
 import Empmanagement from './components/admin/empdetails/Empmanagement';
 import Empdetails from './components/admin/empdetails/Empdetails';
 import Empattendance from './components/admin/empdetails/Empattendance';
+import Empattendancedata from './components/admin/empdetails/Empattendancedata/Empattendancedata';
 
 function App() {
   return (
@@ -55,6 +56,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Empattendance/>
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/empattendance/empattendancedata"
+              element={
+                <PrivateRoute>
+                  <Empattendancedata/>
                 </PrivateRoute>
               }
             />
