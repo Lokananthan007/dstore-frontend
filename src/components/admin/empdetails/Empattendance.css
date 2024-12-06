@@ -44,6 +44,25 @@
   font-family: 'CustomFont' !important;
 }
 
+#empattendance .attendance-table th, 
+#empattendance .attendance-table td {
+  width: 10%;
+  min-width: 100px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+#empattendance .attendance-table th:first-child, 
+#empattendance .attendance-table td:first-child {
+  width: 60px; 
+  min-width: 50px;
+  max-width: 50px; 
+  text-align: center; 
+}
+
+
 #empattendance .attendance-table tr:nth-child(even) {
   background-color: #c2bac6;
 }
@@ -56,18 +75,13 @@
   background-color: #b4b4d0;
 }
 
-#empattendance .attendance-table th:first-child,
-#empattendance .attendance-table td:first-child {
-  text-align: center;
-}
-
 #empattendance input[type="time"], 
 #empattendance input[type="text"] {
-  border: 1px solid #ccc;
+  width: 90%; 
+  height: 30px; 
   padding: 5px;
   border-radius: 5px;
-  /* width: 80px; */
-  font-family: 'CustomFont' !important;
+  border: 1px solid #ccc;
   font-size: 15px;
 }
 
@@ -77,43 +91,47 @@
   outline: none;
 }
 
-#empattendance .present-btn {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-right: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
 
-#empattendance .absent-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
 
-#empattendance .present-btn:hover, .absent-btn:hover {
-  opacity: 0.8;
-}
-
-#empattendance .status {
+/* Styling for Present and Absent buttons */
+#empattendance .attendance-table button {
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: bold;
-  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
   border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 5px;
 }
 
-#empattendance .status.present {
-  color: white;
-  background-color: #4caf50; /* Green for Present */
+/* Present Button Style */
+#empattendance .attendance-table button.present {
+  background-color: #4CAF50; 
+  color: white; 
 }
 
-#empattendance .status.absent {
-  color: white;
-  background-color: #f44336; /* Red for Absent */
+#empattendance .attendance-table button.present:hover {
+  background-color: #45a049; 
+  color: #e0e0e0; 
+}
+
+/* Absent Button Style */
+#empattendance .attendance-table button.absent {
+  background-color: #f44336; 
+  color: white; 
+}
+
+#empattendance .attendance-table button.absent:hover {
+  background-color: #e53935; 
+  color: #e0e0e0; 
+}
+
+/* Disabled button style */
+#empattendance .attendance-table button:disabled {
+  background-color: #e0e0e0; 
+  cursor: not-allowed;
+  color: #757575; 
 }
 
 
