@@ -1,0 +1,116 @@
+/* General styling */
+#empattendancedata {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2),  
+            -3px 3px 3px rgba(0, 0, 0, 0.2), 
+            3px -3px 3px rgba(0, 0, 0, 0.2), 
+            -3px -3px 3px rgba(0, 0, 0, 0.2);
+    font-family: 'CustomFont' !important;
+    overflow-y: auto;
+  }
+  
+  #empattendancedata h1 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-family: 'CustomFont' !important;
+  }
+  
+  /* Button styling */
+  #empattendancedata button {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-family: 'CustomFont' !important;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(40deg, #b4a0ff, #9cf7ff, #ff9cd6); 
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2),
+              -3px 3px 3px rgba(0, 0, 0, 0.2),
+              3px -3px 3px rgba(0, 0, 0, 0.2),
+              -3px -3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  background-size: 200%; 
+  animation: moveGradient 3s infinite;
+  transition: transform 0.2s; 
+  }
+  
+  #empattendancedata button:hover {
+    transform: scale(1.1); 
+  }
+  
+  /* Table styling */
+  .attendancedata-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .attendancedata-table thead {
+    background-color: rgba(75, 192, 192);
+    color: rgb(0, 0, 0);
+  }
+  
+  .attendancedata-table th,
+  .attendancedata-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .attendancedata-table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  .attendancedata-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  .attendancedata-table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+
+  @keyframes moveGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  
+  /* Responsive design */
+  @media screen and (max-width: 768px) {
+    #empattendancedata {
+      padding: 10px;
+    }
+  
+    #empattendancedata h1 {
+      font-size: 18px;
+    }
+  
+    #empattendancedata button {
+      width: 100%;
+      font-size: 14px;
+    }
+  
+    .attendancedata-table th,
+    .attendancedata-table td {
+      padding: 5px;
+      font-size: 12px;
+    }
+  }
+  

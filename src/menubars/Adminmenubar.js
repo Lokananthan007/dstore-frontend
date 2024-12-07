@@ -30,7 +30,7 @@ function Adminmenubar() {
 
   return (
     <div>
-       <div>
+       <div id="Adminmenubar">
       <div className='header'>
         <img src={Logo} alt='logo' />
         <button onClick={handleLogout}><LuLogOut /> Logout</button>

@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 import "../empdetails/Empattendance.css";
 
 const Empattendance = () => {
   const [attendance, setAttendance] = useState([]);
   const [isDataFetched, setIsDataFetched] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAttendanceData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/users/employee");
+        // Fetch employee data
+        const employeeResponse = await axios.get("http://localhost:5000/api/users/employee");
+        const employees = employeeResponse.data;
+  
+        // Get today's date
         const today = new Date().toISOString().slice(0, 10);
-
+  
+        // Fetch today's attendance records
         const attendanceResponse = await axios.get(
           `http://localhost:5000/api/users/attendance?date=${today}`
         );
         const savedAttendance = attendanceResponse.data;
-
-        const initialAttendance = response.data.map((record) => {
+  
+        // Merge employee data with attendance
+        const initialAttendance = employees.map((record) => {
           const savedRecord = savedAttendance.find(
             (att) => att.empId === record.empId
           );
@@ -33,17 +41,18 @@ const Empattendance = () => {
             status: savedRecord?.status || null,
           };
         });
-
+  
         setAttendance(initialAttendance);
         setIsDataFetched(true);
       } catch (error) {
         console.error("Error fetching attendance data:", error);
       }
     };
-
+  
     fetchAttendanceData();
   }, []);
 
+  
   const handleInputChange = (index, field, value) => {
     const updatedAttendance = [...attendance];
     updatedAttendance[index][field] = value;
@@ -76,7 +85,6 @@ const Empattendance = () => {
     }
   };
 
-  const navigate = useNavigate();
 
   const handleUpdateClick = () => {
     navigate("/dashboard/empattendance/empattendancedata"); 
@@ -86,7 +94,7 @@ const Empattendance = () => {
     <div className="main-content">
       <div id="empattendance">
         <h1>Employee Attendance Table</h1>
-        <button onClick={handleUpdateClick}>Update</button>
+        <button className='update-btn' onClick={handleUpdateClick}>Update</button>
         <table className="attendance-table">
           <thead>
             <tr>

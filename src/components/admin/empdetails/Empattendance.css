@@ -1,8 +1,9 @@
 /* Table container */
 #empattendance {
   width: 100%;
-  height: 80vh;
-  background-color: #e9c9fe;
+  font-family: 'CustomFont' !important;
+  min-height: 80vh;
+  background-color: #f9f9f9;
   padding: 20px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2),  
             -3px 3px 3px rgba(0, 0, 0, 0.2), 
@@ -19,7 +20,30 @@
   font-size: 30px;
   text-align: center;
   font-weight: bolder;
-  word-spacing: 3px;
+}
+
+#empattendance .update-btn {
+  padding: 10px 15px;
+  background: linear-gradient(40deg, #b4a0ff, #9cf7ff, #ff9cd6); 
+  border: none;
+  margin: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2),
+              -3px 3px 3px rgba(0, 0, 0, 0.2),
+              3px -3px 3px rgba(0, 0, 0, 0.2),
+              -3px -3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  font-family: 'CustomFont';
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  background-size: 200%; 
+  animation: moveGradient 3s infinite;
+  transition: transform 0.2s; 
+  display: inline-block;
+}
+
+#empattendance .update-btn:hover {
+  transform: scale(1.1); 
 }
 
 #empattendance .attendance-table {
@@ -29,19 +53,12 @@
 }
 
 #empattendance .attendance-table th {
-  background-color: #40434e;
-  color: #ffffff;
+  background-color: rgba(75, 192, 192);
+  color: #000000;
   padding: 10px;
   text-align: center;
   font-family: 'CustomFont' !important;
   text-transform: capitalize;
-}
-
-#empattendance .attendance-table td {
-  padding: 10px;
-  border-bottom: 1px solid #000000;
-  text-align: center;
-  font-family: 'CustomFont' !important;
 }
 
 #empattendance .attendance-table th, 
@@ -52,6 +69,10 @@
   text-align: center;
   vertical-align: middle;
   padding: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-family: 'CustomFont' !important;
 }
 
 #empattendance .attendance-table th:first-child, 
@@ -64,15 +85,15 @@
 
 
 #empattendance .attendance-table tr:nth-child(even) {
-  background-color: #c2bac6;
+  background-color: #f2f2f2;
 }
 
 #empattendance .attendance-table tr:nth-child(odd) {
-  background-color: #99979a;
+  background-color: #ffffff;
 }
 
 #empattendance .attendance-table tr:hover {
-  background-color: #b4b4d0;
+  background-color: #f1f1f1;
 }
 
 #empattendance input[type="time"], 
@@ -132,6 +153,19 @@
   background-color: #e0e0e0; 
   cursor: not-allowed;
   color: #757575; 
+}
+
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 
