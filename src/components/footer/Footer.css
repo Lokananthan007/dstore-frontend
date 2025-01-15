@@ -1,0 +1,33 @@
+#footer {
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 130px; 
+    z-index: -100;
+}
+
+#footer footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#footer footer .p1 {
+    margin: 0;
+    font-size: 14px;
+    display: flex; 
+    align-items: center;
+}
+
+#footer footer .p2 {
+    margin: 0; 
+    font-size: 14px;
+    display: flex; 
+    align-items: center;
+}

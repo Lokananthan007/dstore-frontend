@@ -1,0 +1,126 @@
+#Orders {
+    padding: 20px;
+    background-color: #f8f9fa;
+    overflow-x: auto;
+    margin-bottom: 50px;
+}
+
+/* Heading styling */
+#Orders h1 {
+    font-size: 32px;
+    color: #ffbb00;
+    margin-bottom: 20px;
+}
+
+/* Search section styling */
+#Orders .search {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#Orders .search h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+#Orders  .search input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#Orders  .search input[type="date"] {
+    max-width: 200px;
+}
+
+#Orders  .search button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#Orders .search button:hover {
+    background-color: #0056b3;
+}
+
+/* Table styling */
+#Orders  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+}
+
+#Orders  .orders-table th,
+#Orders  .orders-table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#Orders  .orders-table td {
+    white-space: normal; 
+    overflow-wrap: break-word; 
+    max-width: 40ch; 
+}
+
+#Orders .orders-table th {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#Orders  .orders-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#Orders .orders-table tr:hover {
+    background-color: #d8d4d4;
+}
+
+/* Pagination styling */
+#Orders  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+#Orders  .pagination button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+#Orders  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#Orders  .pagination button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+#Orders .pagination p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    padding-top: 10px;
+}

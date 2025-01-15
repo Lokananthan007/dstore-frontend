@@ -1,0 +1,109 @@
+:root {
+    --sidebar-width: 100px;
+    --sidebar-expanded-width: 250px;
+    --color-text: #616161;
+    --color-text-btn: #ffffff;
+    --header-bg-color: #8bfffb; 
+    --sidebar-bg-color: #8bfffb; 
+    --accent-color: #232221;
+    --active-color: #4a4241;
+    --bg-color: #f0f0f0;
+    --button-bg-color: #000000;
+    --button-hover-color: #272727;
+    --error-color: red;
+  }
+
+  
+  .header {
+    width: 100%;
+    height: 80px;
+    background-color: var(--header-bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Add this to space items */
+    z-index: 3;
+  }
+  
+  .header img {
+    width: 120px;
+    height: 50px;
+    margin-left: 50px;
+  }
+  
+  .header button {
+    background-color: var(--accent-color);
+    color: var(--color-text-btn);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    margin-right: 50px;
+  }
+  
+  .header button:hover {
+    background-color: var(--active-color);
+    transform: scale(1.05);
+  }
+  
+  .header button svg {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  
+  .side-menu {
+    height: calc(100% - 80px);
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 80px;
+    padding-top: 40px;
+    background-color: var(--sidebar-bg-color);
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+  }
+  
+  .side-menu:hover {
+    width: var(--sidebar-expanded-width);
+  }
+  
+  .side-menu .nav-link {
+    padding: 20px 15px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease;
+  }
+  
+  .side-menu .nav-link:hover {
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  .side-menu .nav-link.active {
+    background-color: var(--active-color);
+    color: white;
+  }
+  
+  .side-menu .nav-link i {
+    margin-right: 15px;
+  }
+  
+  .link-text {
+    display: none;
+    white-space: nowrap;
+    padding-left: 10px;
+  }
+  
+  .side-menu:hover .link-text {
+    display: inline;
+  }
+  

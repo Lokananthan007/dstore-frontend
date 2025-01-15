@@ -1,0 +1,76 @@
+
+#TotalOrders {
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+    margin-bottom: 50px;
+}
+
+#TotalOrders h1{
+    text-align: center;
+    font-size: 30px;
+    color: #ff7700;
+}
+
+#TotalOrders .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#TotalOrders .orders-table th, .orders-table td {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: left;
+}
+
+#TotalOrders .orders-table th {
+    background-color: #f3eaa5;
+    color: #000000;
+    font-weight: bold;
+}
+
+#TotalOrders .orders-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#TotalOrders  .orders-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+#TotalOrders .text-center {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+
+#TotalOrders .orders-table button {
+    background-color: #ff7700; 
+    color: #ffffff;          
+    border: none;           
+    padding: 8px 8px;        
+    font-size: 14px;         
+    border-radius: 5px;       
+    cursor: pointer;         
+    transition: background-color 0.3s ease;
+}
+
+#TotalOrders .orders-table button:hover {
+    background-color: #cc5c00; 
+}
+
+#TotalOrders .orders-table button:active {
+    background-color: #993f00; 
+}
+
+#TotalOrders .orders-table button:disabled {
+    background-color: #cccccc; 
+    color: #666666;            
+    cursor: not-allowed;       
+}
+
+#TotalUpdateOrders .orders-update-table input#remarks {
+    width: 200px; 
+    height: 50px; 
+    padding-left: 5px;
+}

@@ -1,0 +1,165 @@
+#TotalUpdateOrders {
+    width: 100%;
+    margin: 0 auto; 
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    overflow-x: auto;
+    margin-bottom: 50px;
+}
+
+#TotalUpdateOrders h1 {
+    font-size: 32px;
+    color: #ffbb00;
+    margin-bottom: 20px;
+}
+
+#TotalUpdateOrders .search {
+    margin-bottom: 20px;
+}
+
+#TotalUpdateOrders .search input {
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#TotalUpdateOrders .search button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#TotalUpdateOrders .search button:hover {
+    background-color: #0056b3;
+}
+
+#TotalUpdateOrders .orders-update-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+#TotalUpdateOrders .orders-update-table th, .orders-update-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+#TotalUpdateOrders  .orders-update-table td {
+    white-space: normal; 
+    overflow-wrap: break-word; 
+    max-width: 40ch; 
+}
+
+#TotalUpdateOrders .orders-update-table th {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#TotalUpdateOrders .orders-update-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#TotalUpdateOrders .orders-update-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer; /* Optional for better UX */
+}
+
+#TotalUpdateOrders .orders-update-table button {
+    padding: 8px 12px;
+    color: white;
+    background-color: #ff7700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#TotalUpdateOrders .orders-update-table button:hover {
+    background-color: #cc5c00;
+}
+
+#TotalUpdateOrders .orders-update-table button:active {
+    background-color: #993f00;
+}
+
+#TotalUpdateOrders .orders-update-table button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#TotalUpdateOrders .orders-update-table input#remarks {
+    width: 200px; 
+    height: 50px; 
+    padding-left: 5px;
+}
+
+/* Pagination styling */
+#TotalUpdateOrders  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+#TotalUpdateOrders  .pagination button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+#TotalUpdateOrders  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#TotalUpdateOrders  .pagination button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+#TotalUpdateOrders .pagination p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+
+@media (max-width: 768px) {
+    #TotalUpdateOrders {
+        padding: 10px;
+    }
+
+    #TotalUpdateOrders .orders-update-table {
+        font-size: 12px;
+    }
+
+    #TotalUpdateOrders .search input, .search button {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    #TotalUpdateOrders .pagination button {
+        padding: 8px;
+        font-size: 12px;
+    }
+}

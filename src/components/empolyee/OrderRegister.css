@@ -1,0 +1,87 @@
+/* Main Container */
+#OrderRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fbd9fd5e;
+    min-height: 100vh;
+}
+
+#OrderRegister .form-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 100%;
+}
+
+#OrderRegister .form-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #ff00d9;
+    text-align: center;
+}
+
+#OrderRegister .form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#OrderRegister .form-table td {
+    padding: 10px 15px;
+    vertical-align: middle;
+}
+
+#OrderRegister .form-table label {
+    font-weight: normal;
+    font-size: 20px;
+    color: #5c2859;
+}
+
+#OrderRegister .form-control {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #000000;
+    box-sizing: border-box;
+}
+
+#OrderRegister .form-control:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+#OrderRegister .btn {
+    padding: 10px 20px;
+    background-color: #0a4a12;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+#OrderRegister .btn:hover {
+    background-color: #004b0f;
+    transform: scale(1.08);
+}
+
+#OrderRegister .text-center {
+    text-align: center;
+}
+
+.no-scroll::-webkit-inner-spin-button,
+.no-scroll::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove increment/decrement controls */
+    margin: 0;
+}
+
+.no-scroll {
+    -moz-appearance: textfield; /* Disable number input spinners in Firefox */
+}
