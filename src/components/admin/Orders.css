@@ -90,6 +90,63 @@
     background-color: #d8d4d4;
 }
 
+#Orders .orders-table button {
+    padding: 8px 12px;
+    color: white;
+    background-color: #ff7700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+#Orders .orders-table button:hover {
+    background-color: #cc5c00;
+}
+
+#Orders .orders-table button:active {
+    background-color: #993f00;
+}
+
+#Orders .orders-table button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#Orders  .delete {
+    padding: 8px 12px;
+    color: white;
+    background-color: #ff0000 !important; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+#Orders .delete:hover {
+    background-color: #ec4a4a !important;
+    color: black;
+}
+
+#Orders  .download {
+    padding: 8px 12px;
+    color: white;
+    background-color: #fb00ff !important; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+#Orders .download:hover {
+    background-color: #ff9ffa !important;
+    color: #ff0000;
+}
+
+
 /* Pagination styling */
 #Orders  .pagination {
     display: flex;

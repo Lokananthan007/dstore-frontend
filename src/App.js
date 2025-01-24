@@ -11,6 +11,7 @@ import TotalOrders from './components/empolyee/TotalOrders';
 import './App.css';
 import EmpRegister from './components/admin/EmpRegister';
 import OrderUpdate from './components/empolyee/OrderUpdate';
+import OrderTacken from './components/empolyee/OrderTacken';
 
 function App() {
     return (
@@ -64,6 +65,15 @@ function App() {
                         </PrivateRoute>
                     }
                 />
+                    <Route
+                        path="/employee/order/order-taken"
+                        element={
+                            <PrivateRoute requiredRole="employee">
+                                <Empsidebar />
+                                <OrderTacken/>
+                            </PrivateRoute>
+                        }
+                    />
                 <Route
                     path="/employee/order/total-update"
                     element={

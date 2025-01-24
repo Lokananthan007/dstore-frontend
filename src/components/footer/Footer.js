@@ -5,8 +5,8 @@ function Footer (){
     return(
         <div id='footer'>
             <footer>
-                <p className='p1'><FaRegCopyright/>2025 D-Store</p>
-                <p className='p2'>Created By: Lokananthan & Nithyasree</p>
+                <p className='p1'><FaRegCopyright/>2025 Dechro</p>
+                <p className='p2'>Created By: Dechro</p>
             </footer>
         </div>
     );

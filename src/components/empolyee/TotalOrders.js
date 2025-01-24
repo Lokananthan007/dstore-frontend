@@ -4,8 +4,11 @@ import './TotalOrders.css';
 
 function TotalOrders() {
     const [orders, setOrders] = useState([]);
-    const [users, setUsers] = useState([]);
     const [savedOrderIds, setSavedOrderIds] = useState([]); // To track saved order IDs
+    const [searchCriteria, setSearchCriteria] = useState({ orderId: '', contactNumber: '' });
+    const [currentPage, setCurrentPage] = useState(1);
+    const rowsPerPage = 10;
+    
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -25,18 +28,7 @@ function TotalOrders() {
         fetchOrders();
     }, []);
 
-    useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/api/auth/users');
-                setUsers(response.data);
-            } catch (error) {
-                console.error('Error fetching users:', error);
-            }
-        };
 
-        fetchUsers();
-    }, []);
 
     const handleInputChange = (index, field, value) => {
         const updatedOrders = [...orders];
@@ -63,11 +55,63 @@ function TotalOrders() {
             alert('Failed to save the order.');
         }
     };
+    
+    
+    const searchOrders = async (e) => {
+        e.preventDefault();
+        try {
+            const query = new URLSearchParams(searchCriteria).toString();
+            const response = await fetch(`http://localhost:5000/api/orders/search?${query}`);
+            const data = await response.json();
+            if (response.ok) {
+                setOrders(data);
+                setCurrentPage(1); // Reset to first page after search
+            } else {
+                console.error('Failed to fetch search results:', data.message);
+            }
+        } catch (error) {
+            console.error('Error searching orders:', error);
+        }
+    };
+
+        // Pagination
+        const indexOfLastRow = currentPage * rowsPerPage;
+        const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+        const currentRows = orders.slice(indexOfFirstRow, indexOfLastRow);
+    
+        const totalPages = Math.ceil(orders.length / rowsPerPage);
+    
+        const handlePageChange = (pageNumber) => {
+            setCurrentPage(pageNumber);
+        };
+    
 
     return (
         <div className="main-content">
             <div id="TotalOrders">
                 <h1>Total Orders</h1>
+                <div className="search">
+                    <h4>Search the order</h4>
+                    <form onSubmit={searchOrders}>
+                        <input
+                            name="orderId"
+                            placeholder="Enter Order ID"
+                            value={searchCriteria.orderId}
+                            onChange={(e) =>
+                                setSearchCriteria({ ...searchCriteria, orderId: e.target.value })
+                            }
+                        />
+                        <input
+                            name="contacNnumper"
+                            placeholder='Enter the Contact Number'
+                            value={searchCriteria.date}
+                            onChange={(e) =>
+                                setSearchCriteria({ ...searchCriteria, contactNumber: e.target.value })
+                            }
+                        />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
                 <table className="orders-table me-3">
                     <thead>
                         <tr>
@@ -78,33 +122,25 @@ function TotalOrders() {
                             <th>Product</th>
                             <th>Price</th>
                             <th>Photo</th>
-                            <th>Taken</th>
-                            <th>Designer Name</th>
-                            <th>Design</th>
-                            <th>Payment</th>
-                            <th>Print</th>
-                            <th>Delivery</th>
-                            <th>Remarks</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.length > 0 && orders.some(order => !savedOrderIds.includes(order._id)) ? (
-                            orders.map((order, index) => (
+                        {currentRows.length > 0 && currentRows.some(order => !savedOrderIds.includes(order._id)) ? (
+                            currentRows.map((order, index) => (
                                 !savedOrderIds.includes(order._id) && (
                                     <tr key={order._id || index}>
-                                        <td>{index + 1}</td>
+                                        <td>{indexOfFirstRow + index + 1}</td>
                                         <td>{order.orderId}</td>
                                         <td>{order.date}</td>
                                         <td>{order.contactNumber}</td>
                                         <td>{order.product}</td>
                                         <td>{order.price}</td>
-                                        <td>{order.photo}</td>
                                         <td>
                                             <select
-                                                value={order.taken || ''}
+                                                value={order.photo || ''}
                                                 onChange={(e) =>
-                                                    handleInputChange(index, 'taken', e.target.value)
+                                                    handleInputChange(index, 'photo', e.target.value)
                                                 }
                                             >
                                                 <option value="" disabled>Select</option>
@@ -113,81 +149,10 @@ function TotalOrders() {
                                             </select>
                                         </td>
                                         <td>
-                                            <select
-                                                value={order.designerName || ''}
-                                                onChange={(e) =>
-                                                    handleInputChange(index, 'designerName', e.target.value)
-                                                }
+                                            <button
+                                                onClick={() => handleSaveRow(index)}
+                                                disabled={order.photo !== 'Yes'} // Button is enabled only if photo === 'Yes'
                                             >
-                                                <option value="" disabled>Select Designer</option>
-                                                {users.map(user => (
-                                                    <option key={user._id} value={user.username}>
-                                                        {user.username}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <select
-                                                value={order.design || ''}
-                                                onChange={(e) =>
-                                                    handleInputChange(index, 'design', e.target.value)
-                                                }
-                                            >
-                                                <option value="" disabled>Select</option>
-                                                <option value="Completed">Completed</option>
-                                                <option value="Pending">Pending</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <select
-                                                value={order.payment || ''}
-                                                onChange={(e) =>
-                                                    handleInputChange(index, 'payment', e.target.value)
-                                                }
-                                            >
-                                                <option value="" disabled>Select</option>
-                                                <option value="Completed">Completed</option>
-                                                <option value="Pending">Pending</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <select
-                                                value={order.print || ''}
-                                                onChange={(e) =>
-                                                    handleInputChange(index, 'print', e.target.value)
-                                                }
-                                            >
-                                                <option value="" disabled>Select</option>
-                                                <option value="Printed">Printed</option>
-                                                <option value="Not Printed">Not Printed</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <select
-                                                value={order.delivery || ''}
-                                                onChange={(e) =>
-                                                    handleInputChange(index, 'delivery', e.target.value)
-                                                }
-                                            >
-                                                <option value="" disabled>Select</option>
-                                                <option value="Delivered">Delivered</option>
-                                                <option value="Not Delivered">Not Delivered</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input
-                                                type="text"
-                                                placeholder="Remarks"
-                                                value={order.remarks || ''}
-                                                onChange={(e) =>
-                                                    handleInputChange(index, 'remarks', e.target.value)
-                                                }
-                                            />
-                                        </td>
-                                        <td>
-                                            <button onClick={() => handleSaveRow(index)}
-                                                disabled={!order.taken || !order.designerName}>
                                                 Save
                                             </button>
                                         </td>
@@ -203,6 +168,21 @@ function TotalOrders() {
                         )}
                     </tbody>
                 </table>
+                <div className="pagination">
+                    <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1} // Disable if on the first page
+                    >
+                        Previous
+                    </button>
+                        <p>Page {currentPage} of {totalPages}</p>
+                    <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages} // Disable if on the last page
+                    >
+                        Next
+                    </button>
+                </div>
             </div>
         </div>
     );

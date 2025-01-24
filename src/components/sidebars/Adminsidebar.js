@@ -1,7 +1,7 @@
 import './Sidemenubar.css';
 import React, { useState, useEffect } from 'react';
 import { Nav } from 'react-bootstrap';
-import Logo from '../../assets/images/D-store.png';
+import Logo from '../../assets/images/dechro logo.png';
 import { MdDashboard } from 'react-icons/md';
 import { RiShoppingCartFill } from "react-icons/ri";
 import { FaUserTie } from 'react-icons/fa';

@@ -15,19 +15,24 @@ function OrderUpdate() {
         return `${day}/${month}/${year}`;
     };
 
-    const fetchTodayOrders = async () => {
-        try {
-            const response = await fetch('http://localhost:5000/api/allorders/get-today');
-            const data = await response.json();
-            if (response.ok) {
-                setOrders(data);
-            } else {
-                console.error('Failed to fetch today\'s orders:', data.message);
+        const fetchTodayOrders = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/allorders/takenYes');
+                const data = await response.json();
+                if (response.ok) {
+                    setOrders(data); // Assuming `setOrders` is a state setter for the orders
+                } else {
+                    console.error('Failed to fetch orders with empty or "yes" taken value:', data.message);
+                }
+            } catch (error) {
+                console.error('Error fetching orders:', error);
             }
-        } catch (error) {
-            console.error('Error fetching today\'s orders:', error);
-        }
-    };
+        };
+        
+        useEffect(() => {
+            fetchTodayOrders();
+        }, []);
+
 
     const searchOrders = async (e) => {
         e.preventDefault();
@@ -46,9 +51,6 @@ function OrderUpdate() {
         }
     };
 
-    useEffect(() => {
-        fetchTodayOrders();
-    }, []);
 
     const updateOrder = async (orderId, updatedOrder) => {
         try {

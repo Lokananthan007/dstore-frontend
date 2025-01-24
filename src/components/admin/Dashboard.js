@@ -98,7 +98,7 @@ function Dashboard() {
                             <span>{stats.totalPayments.toLocaleString()}</span>
                         </h2>
                         <p className="card-footer">
-                            Pending Payments <span className="right">${stats.pendingPayments.toLocaleString()}</span>
+                            Pending Payments <span className="right"><FaRupeeSign/>{stats.pendingPayments.toLocaleString()}</span>
                         </p>
                     </div>
                 </div>
