@@ -25,6 +25,7 @@ function OrderRegister() {
     const initialState = {
         orderId: generateOrderId(),
         date: getCurrentDate(),
+        company: '',
         contactNumber: '',
         product: '',
         price: '',
@@ -87,6 +88,32 @@ function OrderRegister() {
                                             className="form-control"
                                             required
                                         />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label>Select A Company</label></td>
+                                    <td>
+                                        <select
+                                            name="company"
+                                            value={formData.company}
+                                            onChange={handleInputChange}
+                                            className="form-control"
+                                            required
+                                        >
+                                            <option value="" disabled>Select</option>
+                                            <option value="giftshoptn
+                                            ">Gift.Shoptn
+                                            </option>
+                                            <option value="giftee
+                                            ">Giftee
+                                            </option>
+                                            <option value="updatecouples
+                                            ">Update couples
+                                            </option>
+                                            <option value="techsquard
+                                            ">Techsquard
+                                            </option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
