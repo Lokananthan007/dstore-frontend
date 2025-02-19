@@ -167,6 +167,7 @@ function OrderTacken() {
                             <th>S.No</th>
                             <th>Order ID</th>
                             <th>Date</th>
+                            <th>Company</th>
                             <th>Contact Number</th>
                             <th>Product</th>
                             <th>Price</th>
@@ -188,6 +189,7 @@ function OrderTacken() {
                 <td>{indexOfFirstRow + index + 1}</td>
                 <td>{order.orderId}</td>
                 <td>{formatDate(order.date)}</td>
+                <td style={{textTransform:'capitalize'}}>{order.company}</td>
                 <td>{order.contactNumber}</td>
                 <td>{order.product}</td>
                 <td>{order.price}</td>
